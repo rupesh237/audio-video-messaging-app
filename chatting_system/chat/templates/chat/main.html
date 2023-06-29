@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio/Video and messaging app</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
+</head>
+
+<body>
+    <h3 id="label-username">USERNAME</h3>
+    <div>
+        <input type="text" id="username"><button id="btn-join">Join Room</button>
+    </div>
+    <div class="main-grid-container">
+        <div id="video-container">
+            <div><video id="local-video" style="float: left;" autoplay playsinline></video></div>
+            <button id="btn-toggle-audio">Audio Mute</button>
+            <button id="btn-toggle-vedio">Camera Off</button>
+        </div>
+        <div id="chat-section">
+            <h3>Chat-Section</h3>
+            <div id="messages">
+                <ul id="messages-lists"></ul>
+            </div>
+            <div><input type="text" id="msg"><button id="btn-send-msg">Send Message</button></div>
+
+
+            <button id="btn-share-screen">Share Screen</button>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'js/main.js' %}" ></script>
+</body>
+
+</html>
