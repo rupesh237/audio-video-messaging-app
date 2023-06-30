@@ -75,7 +75,7 @@ var userMedia = navigator.mediaDevices.getUserMedia(constraints)
     .then(stream =>{
         localStream= stream;
         localVideo.srcObject= localStream;
-        localVideo.muted= true;
+        localVideo.muted= false;
     })
     .catch(error=>{
         console.log('Error accessing media devices ', error);
