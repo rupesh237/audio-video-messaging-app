@@ -13,3 +13,97 @@ video {
     border-radius: 25%;
     background-color: black;
 }
+
+/* main.css 
+css is added 
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+h3 {
+    color: #333;
+}
+
+#label-username {
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#local-video {
+    width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#chat-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+#messages-lists {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+#messages-lists li {
+    margin-bottom: 10px;
+}
+
+#msg {
+    width: 80%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#btn-send-msg {
+    background-color: #2196f3;
+}
+
+#btn-toggle-audio,
+#btn-toggle-vedio,
+#btn-share-screen {
+    margin-top: 10px;
+}
