@@ -13,6 +13,9 @@ class ChatConsumer(AsyncWebsocketConsumer):
         )
 
         await self.accept()
+
+        self.receiver_channel_name = self.channel_name
+
     async def disconnect(self, close_code):
         await self.channel_layer.group_discard(
 
@@ -27,6 +30,20 @@ class ChatConsumer(AsyncWebsocketConsumer):
         receive_dict['message']['receiver_channel_name'] = self.channel_name
 
         message= receive_dict['message']
+        action= receive_dict['action']
+
+        if (action == 'new-offer') or (action == 'new-answer'):
+            reciver_channel_name = receive_dict['message']['receiver_channel_name']
+
+            receive_dict['message']['receiver_channel_name'] = self.channel_name
+
+            await self.channel_layer.send(
+                self.receiver_channel_name,
+                {
+                    'type': 'send.sdp',
+                    'receiver_dict': receive_dict
+                }
+            )
 
         await self.channel_layer.group_send(
             self.room_group_name,
@@ -37,6 +54,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
         )
 
     async def send_sdp(self, event):
-        receive_dict= event['receive_dict']
+        receive_dict= event.get('receive_dict')
 
         await self.send(text_data=json.dumps(receive_dict))
